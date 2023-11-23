@@ -1,0 +1,63 @@
+﻿@page "/personas"
+
+@using BlazorPruebaPractica.Client.Services;
+@using CurrieTechnologies.Razor.SweetAlert2;
+@using PruebaPractica.Shared;
+
+@inject IPersonService personService;
+@inject SweetAlertService swal;
+
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize]
+
+<h3>Persona</h3>
+<a class="btn btn-success btn-sm mb-3" href="persona">Nuevo Empleado</a>
+
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Tipo de identificaion</th>
+        <th>Numero de identificacion</th>
+        <th>Nombre compuesto</th>
+        <th>Identificacion compuesta</th>
+        <th>Fecha</th>
+    </thead>
+
+    @if (listPerson == null)
+    {
+        <tr>
+            <td colspan="5" align="center">
+                <img style="width:50px" src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" />
+            </td>
+        </tr>
+    }else{
+        @foreach (var item in listPerson)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.IdType</td>
+                <td>@item.IdentificationNumber</td>
+                <td>@item.ConcatenateName</td>
+                <td>@item.ConcatenateID</td>
+                <td>@item.CreationDate.ToString("dd/MM/yyyy")</td>
+                
+            </tr>
+        }
+    }
+</table>
+@code {
+    List<PersonDto>? listPerson = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        listPerson = await personService.Lista();
+    } 
+
+
+}

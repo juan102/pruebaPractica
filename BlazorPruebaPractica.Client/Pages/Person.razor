@@ -1,0 +1,102 @@
+﻿@page "/persona"
+@page "/persona/{idPersona:int}"
+
+
+@using BlazorPruebaPractica.Client.Services;
+@using CurrieTechnologies.Razor.SweetAlert2;
+@using PruebaPractica.Shared;
+
+@inject IPersonService personService;
+@inject NavigationManager navegacion;
+
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Authorization;
+@attribute [Authorize]
+
+<h3>@titulo</h3>
+
+<EditForm Model="person" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <InputText class="form-control" @bind-Value="person.Name"></InputText>
+        <ValidationMessage For="@(() => person.Name)"></ValidationMessage>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <InputText class="form-control" @bind-Value="person.LastName"></InputText>
+        <ValidationMessage For="@(() => person.LastName)"></ValidationMessage>
+    </div>
+
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <InputText class="form-control" @bind-Value="person.Email"></InputText>
+        <ValidationMessage For="@(() => person.Email)"></ValidationMessage>
+    </div>
+
+     <div class="mb-3">
+        <label class="form-label">Tipo de Identificacion</label>
+        <InputText class="form-control" @bind-Value="person.IdType"></InputText>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Numero de Identificacion</label>
+        <InputText class="form-control" @bind-Value="person.IdentificationNumber"></InputText>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Fecha</label>
+        <InputDate class="form-control" @bind-Value="person.CreationDate"></InputDate>
+        <ValidationMessage For="@(() => person.CreationDate)"></ValidationMessage>
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+        @btnTexto
+    </button>
+
+    <a class="btn btn-warning" href="personas">Volver</a>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int idPersona { get; set; } = 0;
+
+    string titulo = string.Empty;
+    string btnTexto = string.Empty;
+
+    PersonDto person = new PersonDto();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (idPersona != 0)
+        {
+            person = await personService.Buscar(idPersona);
+            btnTexto = "Actualizar";
+            titulo = "Editar Persona";
+        }
+        else
+        {
+            person.CreationDate = DateTime.Today;
+            btnTexto = "Guardar Persona";
+            titulo = "Nuevo Persona";
+        }
+    }
+
+    private async Task OnValidSubmit()
+    {
+        int idDevuelto = 0;
+        if (idPersona == 0)
+            idDevuelto = await personService.Guardar(person);
+        else
+            idDevuelto = await personService.Editar(person);
+
+
+        if (idDevuelto != 0)
+            navegacion.NavigateTo("/personas");
+
+    }
+
+}

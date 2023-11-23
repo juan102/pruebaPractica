@@ -1,0 +1,11 @@
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\bin\Debug\net7.0\PruebaPractica.Shared.deps.json
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\bin\Debug\net7.0\PruebaPractica.Shared.dll
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\bin\Debug\net7.0\PruebaPractica.Shared.pdb
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\obj\Debug\net7.0\PruebaPractica.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\obj\Debug\net7.0\PruebaPractica.Shared.AssemblyInfoInputs.cache
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\obj\Debug\net7.0\PruebaPractica.Shared.AssemblyInfo.cs
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\obj\Debug\net7.0\PruebaPractica.Shared.csproj.CoreCompileInputs.cache
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\obj\Debug\net7.0\PruebaPractica.Shared.dll
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\obj\Debug\net7.0\refint\PruebaPractica.Shared.dll
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\obj\Debug\net7.0\PruebaPractica.Shared.pdb
+C:\Users\amari\source\repos\SolucionPrueba\PruebaPractica.Shared\obj\Debug\net7.0\ref\PruebaPractica.Shared.dll

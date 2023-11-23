@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "PruebaPractica.Shared/1.0.0": {
+        "runtime": {
+          "PruebaPractica.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PruebaPractica.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
